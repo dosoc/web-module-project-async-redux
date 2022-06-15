@@ -8,7 +8,6 @@ export const updatePrice = () => {
         axios.get(URL)
             .then(res=> {
                 const usdPrice = res.data
-                console.log(usdPrice)
                 dispatch({type: UPDATE_PRICE, payload: usdPrice})
             })
             .catch(err=> {
