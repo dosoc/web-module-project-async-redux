@@ -1,13 +1,18 @@
 import {UPDATE_PRICE} from "../actions/actions"
 
 const initialState = {
-    price: "21,798"
+    price: "",
+    time: ""
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_PRICE:
-            return {...state, price: action.payload}
+            return {
+                ...state, 
+                price: action.payload.bpi.USD.rate,
+                time: action.payload.time.updated
+            }
         default:
             return state;
         }
